@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -16,9 +17,19 @@
       height: 100vh;
     }
     #countdown {
-      font-size: 150px;
       text-align: center;
       padding: 20px;
+    }
+    .line1 {
+      font-size: 120px;
+      line-height: 1.2;
+    }
+    .spacer {
+      height: 40px;
+    }
+    .line2 {
+      font-size: 80px;
+      line-height: 1.2;
     }
     #main-content {
       display: none;
@@ -47,15 +58,25 @@
       height: auto;
       margin-top: 20px;
     }
+
+    .fancy-number {
+      font-size: 160px;
+      animation: pulse 1s ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
   </style>
 </head>
 <body>
-    <div id="countdown">
+  <div id="countdown">
     <div class="line1">🎉 開獎 🎉</div>
     <div class="spacer"></div>
     <div class="line2">倒數計時..</div>
   </div>
-
 
   <div id="main-content">
     <img src="342125.jpg" alt="中獎圖片">
