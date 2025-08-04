@@ -71,21 +71,20 @@
 
     let counter = 10;
 
-    // 顯示開場3秒再開始10秒倒數
     setTimeout(() => {
-      countdownEl.innerHTML = '<div style="font-size:160px;">' + counter + '</div>';
+      countdownEl.innerHTML = '<div class="fancy-number">' + counter + '</div>';
 
       const countdownInterval = setInterval(() => {
         counter--;
         if (counter > 0) {
-          countdownEl.innerHTML = '<div style="font-size:160px;">' + counter + '</div>';
+          countdownEl.innerHTML = '<div class="fancy-number">' + counter + '</div>';
         } else {
           clearInterval(countdownInterval);
           countdownEl.style.display = "none";
           mainContent.style.display = "flex";
         }
       }, 1000);
-    }, 3000); // 延遲3秒才開始倒數
+    }, 3000);
 
     playButton.addEventListener("click", () => {
       music.play();
