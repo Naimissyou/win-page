@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>中獎畫面</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffc0cb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    img {
+      max-width: 90%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <img src="342125.jpg" alt="中獎圖片">
+
+  <audio id="win-audio" src="刮刮樂中獎音效.MP3" autoplay></audio>
+
+  <script>
+    const audio = document.getElementById("win-audio");
+    window.addEventListener("load", () => {
+      audio.play().catch((e) => {
+        console.warn("自動播放失敗，瀏覽器可能阻擋了：", e);
+      });
+    });
+  </script>
+</body>
+</html>
