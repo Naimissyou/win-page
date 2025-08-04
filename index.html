@@ -1,23 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>中獎畫面</title>
+  <title>倒數中...</title>
   <style>
     body {
       margin: 0;
-      background-color: #ffc0cb;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
     }
-    img {
-      max-width: 90%;
-      height: auto;
+    #countdown {
+      font-size: 150px;
+      text-align: center;
+      padding: 20px;
+    }
+    #main-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
     }
     #play-button {
       font-size: 32px;
@@ -36,21 +42,49 @@
       background: linear-gradient(135deg, #e91e63, #ff4081);
       transform: scale(1.05);
     }
+    img {
+      max-width: 90%;
+      height: auto;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
-  <img src="342125.jpg" alt="中獎圖片">
-  <button id="play-button">🎂 點我領獎！</button>
+  <div id="countdown">🎉 開獎倒數計時 🎉</div>
 
-  <audio id="bg-music" src="Happy Birthday.MP3" loop></audio>
+  <div id="main-content">
+    <img src="342125.jpg" alt="中獎圖片">
+    <button id="play-button">🎂 點我領獎！</button>
+    <audio id="bg-music" src="Happy Birthday.MP3" loop></audio>
+  </div>
 
   <script>
-    const button = document.getElementById("play-button");
+    const countdownEl = document.getElementById("countdown");
+    const mainContent = document.getElementById("main-content");
+    const playButton = document.getElementById("play-button");
     const music = document.getElementById("bg-music");
 
-    button.addEventListener("click", () => {
+    let counter = 10;
+
+    // 顯示開場3秒再開始10秒倒數
+    setTimeout(() => {
+      countdownEl.textContent = counter;
+
+      const countdownInterval = setInterval(() => {
+        counter--;
+        if (counter > 0) {
+          countdownEl.textContent = counter;
+        } else {
+          clearInterval(countdownInterval);
+          countdownEl.style.display = "none";
+          mainContent.style.display = "flex";
+        }
+      }, 1000);
+    }, 3000); // 延遲3秒才開始倒數
+
+    playButton.addEventListener("click", () => {
       music.play();
-      button.style.display = "none";
+      playButton.style.display = "none";
     });
   </script>
 </body>
