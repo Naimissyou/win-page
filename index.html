@@ -73,12 +73,12 @@
 
     // 顯示開場3秒再開始10秒倒數
     setTimeout(() => {
-      countdownEl.textContent = counter;
+      countdownEl.innerHTML = '<div style="font-size:160px;">' + counter + '</div>';
 
       const countdownInterval = setInterval(() => {
         counter--;
         if (counter > 0) {
-          countdownEl.textContent = counter;
+          countdownEl.innerHTML = '<div style="font-size:160px;">' + counter + '</div>';
         } else {
           clearInterval(countdownInterval);
           countdownEl.style.display = "none";
