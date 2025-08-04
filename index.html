@@ -13,31 +13,34 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
     }
     img {
       max-width: 90%;
       height: auto;
     }
     #play-button {
-      font-size: 24px;
-      padding: 12px 28px;
-      background-color: #ff4081;
+      font-size: 32px;
+      padding: 20px 50px;
+      background: linear-gradient(135deg, #ff4081, #ff80ab);
       color: white;
       border: none;
-      border-radius: 12px;
-      margin-top: 30px;
+      border-radius: 30px;
+      margin-top: 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      font-weight: bold;
     }
     #play-button:hover {
-      background-color: #e91e63;
+      background: linear-gradient(135deg, #e91e63, #ff4081);
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
   <img src="342125.jpg" alt="中獎圖片">
-  <button id="play-button">🎁 領獎</button>
+  <button id="play-button">🎉 點我領獎！</button>
 
   <audio id="bg-music" src="Happy Birthday.MP3" loop></audio>
 
