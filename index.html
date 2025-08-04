@@ -13,24 +13,41 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
+      font-family: sans-serif;
     }
     img {
       max-width: 90%;
       height: auto;
     }
+    #play-button {
+      font-size: 24px;
+      padding: 12px 28px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #play-button:hover {
+      background-color: #e91e63;
+    }
   </style>
 </head>
 <body>
   <img src="342125.jpg" alt="中獎圖片">
+  <button id="play-button">🎁 領獎</button>
 
-  <audio id="win-audio" src="刮刮樂中獎音效.MP3" autoplay></audio>
+  <audio id="bg-music" src="Happy Birthday.MP3" loop></audio>
 
   <script>
-    const audio = document.getElementById("win-audio");
-    window.addEventListener("load", () => {
-      audio.play().catch((e) => {
-        console.warn("自動播放失敗，瀏覽器可能阻擋了：", e);
-      });
+    const button = document.getElementById("play-button");
+    const music = document.getElementById("bg-music");
+
+    button.addEventListener("click", () => {
+      music.play();
+      button.style.display = "none";
     });
   </script>
 </body>
